@@ -22,22 +22,54 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(nextSlide, 4000);
     });
     
-    // Email signup form handling
-    const emailForm = document.querySelector('.email-signup form');
-    if (emailForm) {
-        emailForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            
-            // Here you would typically send the email to your backend
-            // For now, we'll just show an alert
-            alert('Thank you! We\'ll notify you when registration opens. Email: ' + email);
-            
-            // Clear the form
-            this.reset();
-        });
-    }
     
+    
+    
+    // Email signup form handling
+	const emailForm = document.querySelector('#email-form');
+	if (emailForm) {
+		 emailForm.addEventListener('submit', async function(e) {
+			  e.preventDefault();
+			  
+			  const email = document.querySelector('#email-input').value;
+			  const button = this.querySelector('button');
+			  const messageDiv = document.querySelector('#form-message');
+			  
+			  // Show loading state
+			  button.textContent = 'Submitting...';
+			  button.disabled = true;
+			  messageDiv.style.display = 'none';
+			  
+			  try {
+					const formData = new FormData();
+					formData.append('email', email);
+					
+					const response = await fetch('/api/signup', {
+						 method: 'POST',
+						 body: formData
+					});
+					
+					const result = await response.json();
+					
+					if (response.ok) {
+						 messageDiv.innerHTML = `<p style="color: #27ae60; font-weight: bold;">${result.message}</p>`;
+						 this.reset(); // Clear the form
+					} else {
+						 messageDiv.innerHTML = `<p style="color: #e74c3c; font-weight: bold;">Error: ${result.message || 'Please try again.'}</p>`;
+					}
+					
+			  } catch (error) {
+					console.error('Error:', error);
+					messageDiv.innerHTML = '<p style="color: #e74c3c; font-weight: bold;">Sorry, there was an error. Please try again.</p>';
+			  }
+			  
+			  // Reset button
+			  button.textContent = 'Notify Me';
+			  button.disabled = false;
+			  messageDiv.style.display = 'block';
+		 });
+	}
+      
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
