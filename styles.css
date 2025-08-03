@@ -1,0 +1,631 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header and Hero Section */
+.hero-section {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section.small {
+    height: 40vh;
+}
+
+.image-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: #ffd700;
+}
+
+.race-details h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #ff6b35;
+}
+
+.race-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Navigation */
+.main-nav {
+    background: #2c3e50;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-nav li {
+    margin: 0;
+}
+
+.main-nav a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background-color: #ff6b35;
+}
+
+/* Content Sections */
+.content-section,
+.intro-section {
+    padding: 3rem 0;
+    background: white;
+    margin-bottom: 2rem;
+}
+
+.intro-section {
+    background: white;
+    color: #333;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.content-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    border-bottom: 3px solid #ff6b35;
+    padding-bottom: 0.5rem;
+}
+
+.content-section h3 {
+    color: #34495e;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.content-section p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.content-section ul {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.content-section li {
+    margin-bottom: 0.5rem;
+}
+
+/* Registration Section */
+.registration-section {
+    background: #34495e;
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.registration-section h2 {
+    color: white;
+    border-bottom: 3px solid #ff6b35;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.email-signup {
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.email-signup form {
+    display: flex;
+    gap: 1rem;
+}
+
+.email-signup input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.email-signup button {
+    background: #ff6b35;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.email-signup button:hover {
+    background: #e55a2b;
+}
+
+/* Quick Links */
+.quick-links {
+    padding: 3rem 0;
+    background: #ecf0f1;
+}
+
+.quick-links h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+    font-size: 2.5rem;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.link-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.link-card h3 {
+    color: #ff6b35;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.link-card p {
+    margin: 0;
+    color: #666;
+}
+
+/* FAQ Grid */
+.faq-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid #ff6b35;
+}
+
+.faq-item h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.faq-item p {
+    margin-bottom: 1rem;
+}
+
+.faq-item p:last-child {
+    margin-bottom: 0;
+}
+
+/* Booking Info */
+.booking-info {
+    background: #e8f5e8;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border-left: 5px solid #27ae60;
+}
+
+.booking-info h3 {
+    color: #27ae60;
+    margin-bottom: 1rem;
+}
+
+.booking-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.booking-info li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #d5e8d5;
+}
+
+.booking-info li:last-child {
+    border-bottom: none;
+}
+
+/* Sustainability Measures */
+.sustainability-measures {
+    display: grid;
+    gap: 2rem;
+}
+
+.measure-item {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid #27ae60;
+}
+
+.measure-item h2 {
+    color: #27ae60;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    padding: 0;
+}
+
+.transport-options {
+    margin-top: 1.5rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.transport-options h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.tip {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tip h3 {
+    color: #27ae60;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Route Sections */
+.route-disclaimer {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.route-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+}
+
+.route-section h2 {
+    color: #3498db;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    padding: 0;
+}
+
+.route-highlights {
+    margin-top: 3rem;
+    background: #e8f4fd;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.highlight {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.highlight h3 {
+    color: #3498db;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.highlight ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.highlight li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.highlight li:last-child {
+    border-bottom: none;
+}
+
+/* Thank You Sections */
+.thanks-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid #e74c3c;
+}
+
+.thanks-section h2 {
+    color: #e74c3c;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    padding: 0;
+}
+
+.partner-list,
+.volunteer-list,
+.creative-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.partner-list li,
+.volunteer-list li,
+.creative-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.partner-list li:last-child,
+.volunteer-list li:last-child,
+.creative-list li:last-child {
+    border-bottom: none;
+}
+
+/* Special sections */
+.charity-info,
+.inspiration-section,
+.vision-section,
+.commitment-section,
+.community-spirit,
+.future-thanks {
+    background: #f8f9fa;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    border-left: 5px solid #9b59b6;
+}
+
+.charity-info h2,
+.inspiration-section h2,
+.vision-section h2,
+.commitment-section h2,
+.community-spirit h2,
+.future-thanks h2 {
+    color: #9b59b6;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    padding: 0;
+}
+
+/* Footer */
+footer {
+    background: #2c3e50;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+footer a {
+    color: #ff6b35;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .race-details h2 {
+        font-size: 1.5rem;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+    }
+    
+    .main-nav a {
+        text-align: center;
+        padding: 0.8rem;
+    }
+    
+    .email-signup form {
+        flex-direction: column;
+    }
+    
+    .email-signup input,
+    .email-signup button {
+        margin-bottom: 1rem;
+    }
+    
+    .links-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-section {
+        height: 50vh;
+    }
+    
+    .hero-section.small {
+        height: 30vh;
+    }
+    
+    .hero-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+    
+    .race-details h2 {
+        font-size: 1.3rem;
+    }
+    
+    .race-details h3 {
+        font-size: 1.1rem;
+    }
+    
+    .content-section,
+    .intro-section {
+        padding: 2rem 0;
+    }
+    
+    .link-card,
+    .faq-item,
+    .measure-item,
+    .route-section,
+    .thanks-section {
+        padding: 1.5rem;
+    }
+}
