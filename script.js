@@ -85,16 +85,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add loading animation for images
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-        
-        // Set initial opacity for loading effect
-        img.style.opacity = '0';
-        img.style.transition = 'opacity 0.3s ease';
-    });
+// Add loading animation for images
+	const images = document.querySelectorAll('img');
+	images.forEach(img => {
+		 // Only apply loading effect if image hasn't already loaded
+		 if (!img.complete) {
+			  img.style.opacity = '0';
+			  img.style.transition = 'opacity 0.3s ease';
+			  
+			  img.addEventListener('load', function() {
+					this.style.opacity = '1';
+			  });
+			  
+			  // Handle error case - show image even if it fails to load
+			  img.addEventListener('error', function() {
+					this.style.opacity = '1';
+					console.warn('Failed to load image:', this.src);
+			  });
+		 }
+	});
 });
 
 // Add some interactive effects
